@@ -7,10 +7,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true }));
 
-app.get('/', function(req, res) {
-    res.send('hola mundo');
-});
+const formularioContacto = require('./routes/formularioContacto');
+app.use('/api', formularioContacto)
 
 app.listen(port, () => {
-    console.log(`server is running on http:/localhost:${port}`);
+    console.log(`server is running on http://localhost:${port}`);
 });
